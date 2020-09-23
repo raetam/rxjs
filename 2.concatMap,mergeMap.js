@@ -17,14 +17,14 @@ const t3 = (d) => new Promise((resolve,reject)=>setTimeout(()=>{
   console.log('t3',d)
   return resolve(d)}, 5000))
 
-async function ts(d){
+async function tasks(d){
   await t1(d)
   await t2(d)
   await t3(d)
-}
+} 
 
 s2.pipe(
-  mergeMap(d=> Rx.from(ts(d))),
+  mergeMap(d=> Rx.from(tasks(d))),
   // concatMap(d=> Rx.from(ts(d)))
 ).subscribe()
 

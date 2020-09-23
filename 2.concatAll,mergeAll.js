@@ -15,6 +15,6 @@ const s4 = Rx.interval(1000).pipe(take(3),tap(console.log))
 const s5 = Rx.interval(1000).pipe(take(3),tap(console.log))
 const s6 = Rx.of(s1,s2,s3,s4,s5)
 s6.pipe(
-  // concatAll()
+  concatAll()
   // mergeAll(3)
 ).subscribe()
