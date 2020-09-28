@@ -23,8 +23,9 @@ async function tasks(d){
   await t3(d)
 } 
 
+// mergeMap 과 concatMap 차이
 s2.pipe(
   mergeMap(d=> Rx.from(tasks(d))),
-  // concatMap(d=> Rx.from(ts(d)))
+  // concatMap(d=> Rx.from(tasks(d)))
 ).subscribe()
 
